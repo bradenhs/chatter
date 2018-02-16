@@ -1,0 +1,7 @@
+{
+  "defaultSeverity": "warning",
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "triple-equals": true
+  }
+}

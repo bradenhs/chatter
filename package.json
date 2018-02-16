@@ -1,0 +1,40 @@
+{
+  "name": "test",
+  "private": true,
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start":
+      "stmux --mouse -- [ [ \"yarn run server\" .. \"yarn run mobile-app\" .. \"yarn run web-app\" ] : [ \"yarn run typechecker\" .. \"yarn run linter\" .. \"yarn run database\" ] ]",
+    "typechecker":
+      "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
+    "linter":
+      "onchange '**/*.ts' '**/*.tsx' -i -- tslint -c tslint.json -p tsconfig.json | build-error-notifier",
+    "server":
+      "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
+    "mobile-app": "react-native-scripts ios",
+    "web-app": "parcel serve index.html --out-dir .web-app-out",
+    "database": "echo \"Database\""
+  },
+  "dependencies": {
+    "@types/koa": "^2.0.44",
+    "@types/react": "^16.0.38",
+    "@types/react-native": "^0.52.12",
+    "build-error-notifier": "^1.0.0",
+    "expo": "^25.0.0",
+    "koa": "^2.5.0",
+    "onchange": "^3.3.0",
+    "parcel-bundler": "^1.6.1",
+    "parcel-plugin-typescript": "^0.6.0",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-native": "0.52.0",
+    "react-native-scripts": "^1.11.1",
+    "react-native-typescript-transformer": "^1.2.3",
+    "stmux": "^1.4.19",
+    "ts-node": "^4.1.0",
+    "ts-node-dev": "^1.0.0-pre.15",
+    "tsconfig-paths": "^3.1.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  }
+}
