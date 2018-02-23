@@ -3,16 +3,10 @@
   "private": true,
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start":
-      "stmux --mouse -- [ [ \"yarn run server\" .. \"yarn run mobile-app\" .. \"yarn run web-app\" ] : [ \"yarn run typechecker\" .. \"yarn run linter\" .. \"yarn run database\" ] ]",
-    "typechecker":
-      "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
-    "linter":
-      "onchange '**/*.ts' '**/*.tsx' -i -- tslint -c tslint.json -p tsconfig.json | build-error-notifier",
-    "server":
-      "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
-    "mobile-app": "react-native-scripts ios",
-    "web-app": "parcel serve index.html --out-dir .web-app-out",
+    "start": "stmux --mouse -- [ [ \"yarn run server\" .. \"yarn run client\" ] : [ \"yarn run typechecker\" .. \"yarn run database\" ] ]",
+    "typechecker": "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
+    "server": "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
+    "client": "react-native-scripts start",
     "database": "echo \"Database\""
   },
   "dependencies": {
@@ -22,9 +16,6 @@
     "build-error-notifier": "^1.0.0",
     "expo": "^25.0.0",
     "koa": "^2.5.0",
-    "onchange": "^3.3.0",
-    "parcel-bundler": "^1.6.1",
-    "parcel-plugin-typescript": "^0.6.0",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-native": "0.52.0",
