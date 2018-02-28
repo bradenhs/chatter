@@ -2,6 +2,7 @@ import React from "react";
 import { View, TextInput, StatusBar } from "react-native";
 import { Logo } from "client/logo";
 import { colors } from "client/colors";
+import { Header } from "client/header";
 
 export class App extends React.Component {
   render() {
@@ -10,12 +11,12 @@ export class App extends React.Component {
         style={{
           flex: 1,
           backgroundColor: colors.PRIMARY_BACKGROUND,
-          paddingTop: 30,
           alignContent: "center",
           alignItems: "center"
         }}
       >
-        <View style={{}}>
+        <Header />
+        <View style={{ paddingTop: 200 }}>
           <StatusBar barStyle="light-content" />
           <Logo />
           <TextInput
