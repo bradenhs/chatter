@@ -17,7 +17,7 @@ export class Logo extends React.PureComponent {
   render() {
     return (
       <View style={containerStyle}>
-        <Text style={baseStyle}>chatter</Text>
+        <Text style={baseStyle}>adder</Text>
       </View>
     );
   }

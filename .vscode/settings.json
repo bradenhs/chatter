@@ -11,5 +11,6 @@
     ".vscode": true,
     ".cache": true,
     ".web-app-out": true
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
