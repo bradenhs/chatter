@@ -141,7 +141,16 @@ export class App extends React.Component {
     const response = await api.getCalculationList({ start: 0, count: 5 });
 
     if (isOk(response)) {
-      console.log(response.result);
+      Alert.alert(
+        "Previous Calculations",
+        response.result
+          .map(calculation => {
+            return (
+              calculation.num1, "+", calculation.num2, "=", calculation.result
+            );
+          })
+          .join("\n")
+      );
     }
   }
 }

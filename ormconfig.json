@@ -3,9 +3,13 @@
   "host": "localhost",
   "port": 3306,
   "username": "root",
-  "password": "uxGrKpzKV66WhrGr",
+  "password": "",
   "database": "chatter",
-  "synchronize": true,
+  "synchronize": false,
   "logging": false,
-  "entities": ["server/entities/**/*.ts"]
+  "entities": ["server/entities/**/*.ts"],
+  "migrations": ["server/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "server/migrations"
+  }
 }

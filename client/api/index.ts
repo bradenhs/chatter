@@ -21,16 +21,16 @@ interface OkEndpointResponse<T> {
   statusCode: number;
   result: T;
 }
+
 type EndpointResponse<T = any> = OkEndpointResponse<T> | BadEndpointResponse<T>;
 
-
-type MapFn<Fn, R> =
-  Fn extends (a: infer A) => any ? (arg1: A) => R :
-  Fn extends (a: infer A, b: infer B) => any ? (arg1: A, arg2: B) => R :
-  Fn extends (a: infer A, b: infer B, c: infer C) => any ? (arg1: A, arg2: B, arg3: C) => R :
-  Fn extends (a: infer A, b: infer B, c: infer C, d: infer D) => any ? (arg1: A, arg2: B, arg3: C, arg4: D) => R :
-  Fn extends (a: infer A, b: infer B, c: infer C, d: infer D, e: infer E) => any ? (arg1: A, arg2: B, arg3: C, arg4: D, arg5: E) => R :
-  (...args: any[]) => R;  
+// prettier-ignore
+type MapFn<Fn, R> = Fn extends (a: infer A) => any ? (arg1: A) => R
+  : Fn extends (a: infer A, b: infer B) => any ? (arg1: A, arg2: B) => R
+  : Fn extends (a: infer A, b: infer B, c: infer C) => any ? (arg1: A, arg2: B, arg3: C) => R
+  : Fn extends (a: infer A, b: infer B, c: infer C, d: infer D) => any ? (arg1: A, arg2: B, arg3: C, arg4: D) => R
+  : Fn extends (a: infer A, b: infer B, c: infer C, d: infer D, e: infer E) => any ? (arg1: A, arg2: B, arg3: C, arg4: D, arg5: E) => R
+  : (...args: any[]) => R;
 
 type Unpromised<T> = T extends Promise<infer U> ? U : T;
 type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
@@ -65,7 +65,7 @@ function createEndpoint(path: string) {
         method: "POST",
         body: JSON.stringify(args),
         headers: new Headers({
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         })
       });
     } catch (error) {
@@ -78,9 +78,9 @@ function createEndpoint(path: string) {
         result: null
       };
     }
-    
+
     let result: any = null;
-    
+
     try {
       result = await response.json();
     } catch (error) {
