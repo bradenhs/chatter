@@ -7,9 +7,10 @@
     "server":
       "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
     "client": "react-native-scripts ios",
-    "db-migrate":
-      "ts-node ./node_modules/.bin/typeorm migrations:generate -n Migration && ts-node ./node_modules/.bin/typeorm migrations:run",
-    "db-run":
+    "db-gen-migration":
+      "ts-node ./node_modules/.bin/typeorm migrations:generate -n",
+    "db-run-migration": "ts-node ./node_modules/.bin/typeorm migrations:run",
+    "db-start":
       "docker run -it --name=chatter-db --rm -p 3306:3306 -e \"MYSQL_ALLOW_EMPTY_PASSWORD=yes\" -e \"MYSQL_DATABASE=chatter\" mysql:5.7.21",
     "db-connect": "docker exec -it chatter-db bash -c \"mysql -u root chatter\""
   },
