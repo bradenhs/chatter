@@ -5,7 +5,7 @@
   "username": "root",
   "password": "",
   "database": "chatter",
-  "synchronize": false,
+  "synchronize": true,
   "logging": false,
   "entities": ["server/entities/**/*.ts"],
   "migrations": ["server/migrations/*.ts"],

@@ -145,9 +145,9 @@ export class App extends React.Component {
         "Previous Calculations",
         response.result
           .map(calculation => {
-            return (
-              calculation.num1, "+", calculation.num2, "=", calculation.result
-            );
+            return `${calculation.num1} + ${calculation.num2} = ${
+              calculation.result
+            }`;
           })
           .join("\n")
       );
